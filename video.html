@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Гемабанк</title>
+    <title>Гемабанк - Видео</title>
     <link rel="stylesheet" href="main.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon-16x16.png">
     <link rel="icon" href="images/favicon-32x32.png">
+    <script>
+        function btnUp(){
+            window.scrollTo({ 
+                top: 0, behavior: 'smooth' 
+            });
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -27,10 +34,23 @@
             Видео
         </div>
     </header>
-    <main>
 
+    <main>
+        <h1>Какие заболевания лечат стволовыми клетками в России?</h1>
+        <hr>
+
+        <div class="video">
+            <iframe 
+                src="https://rutube.ru/play/embed/7b46b5197b8dd8a5c465c51f5f479b27/"  
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
     </main>
+
     <footer>
+        <p>&copy; 2025 Гемабанк<sup>&reg;</sup>. Все права защищены.</p>
     </footer>
+    <button class="up-button" onclick="btnUp()" title="Наверх">&uarr;</button>
 </body>
 </html>
