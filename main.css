@@ -16,7 +16,7 @@ header {
     width: 100%;
     height: 50px;
     background-color: #D6302A;
-    color: #fff;
+    color: #ffffff;
 }
 header div {
     flex: 1;
@@ -35,4 +35,102 @@ header div:hover {
 header div:active {
     box-shadow: inset 0 3px 5px rgba(0,0,0,0.2);
     background-color: #a8231e;
+}
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+h1 {
+    font-size: 1.8rem;
+    color: #D6302A;
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+h2 {
+    font-size: 1.4rem;
+    color: #D6302A;
+    margin: 25px 0 10px 0;
+    padding-bottom: 0;
+}
+hr {
+    border: none;
+    height: 2px;
+    background-color: #D6302A;
+    margin: 5px 0 20px 0;
+    width: 100%;
+}
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+ul, ol {
+    margin: 10px 0px 20px 30px;
+}
+li::marker{
+    color: #D6302A;
+}
+li {
+    margin-bottom: 5px;
+}
+strong {
+    color: #D6302A;
+}
+.image-left {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    max-width: 90px;
+}
+.image-right{
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    max-width: 200px;
+}
+footer {
+    background-color: #1e1d1d;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8rem;
+    border-top: 3px solid #D6302A;
+    margin-top: 40px;
+}
+footer p {
+    margin: 5px 0;
+}
+.official-link {
+    text-align: center;
+    margin-top: 30px;
+}
+.official-link a {
+    color: #D6302A;
+    font-weight: bold;
+    text-decoration: none;
+}
+.official-link a:hover {
+    text-decoration: underline;
+}
+.up-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #D6302A;
+    color: white;
+    border: 2px solid white;
+    border-radius: 12px;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+.up-button:hover {
+    background-color: #a8231e;
+    transform: scale(1.05);
+}
+.up-button:active {
+    transform: scale(0.95);
 }
