@@ -134,3 +134,9 @@ footer p {
 .up-button:active {
     transform: scale(0.95);
 }
+.map {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
