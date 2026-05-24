@@ -8,8 +8,111 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon-16x16.png">
     <link rel="icon" href="images/favicon-32x32.png">
+    <script src="scripts/news.js"></script>
+    <script>
+        function showNews(){
+            let container = document.getElementById('news');
+            let output = '';
+
+            for (let i = 0; i < news.length; i++){
+                output += `<div class="cart" id="cart-${i}">
+                    <img src="${news[i].img}">
+                    <h2>${news[i].name}</h2>
+                    <button class="show" onclick="showMore(${i})">Показать</button>
+                    <div id="full-${i}" class="full-text">${news[i].info}</div>
+                </div>`;
+            }
+            container.innerHTML = output;
+        }
+        function showMore(index) {
+            let currentCart = document.getElementById(`cart-${index}`);
+            let currentBtn = currentCart.querySelector('.show');
+            let isExpanded = currentCart.classList.contains('expanded');
+
+            if (isExpanded) {
+                currentCart.classList.remove('expanded');
+                currentBtn.textContent = 'Показать';
+                return;
+            }
+
+            let allExpanded = document.querySelectorAll('.cart.expanded');
+            for (let i = 0; i < allExpanded.length; i++) {
+                allExpanded[i].classList.remove('expanded');
+                let btn = allExpanded[i].querySelector('.show');
+                if (btn) btn.textContent = 'Показать';
+            }
+
+            currentCart.classList.add('expanded');
+            currentBtn.textContent = 'Скрыть';
+        }
+    </script>
+    <style>
+        #news {
+            display: flex;
+            flex-wrap: wrap;        
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .cart {
+            width: 280px;       
+            height: 350px; 
+            border: 2px solid #D6302A;
+            border-radius: 12px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;  
+            background: white;
+            box-shadow: 0 2px 5px black;
+            transition: transform 0.2s;
+        }
+        .cart:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px black;
+        }
+        .cart img {
+            width: 100%;
+            height: 180px;
+            display: block;
+        }
+        .cart h2 {
+            font-size: 18px;
+            margin: 12px 10px 0 10px;
+            color: #D6302A;
+        }
+        .cart .show {
+            background-color: #D6302A;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: auto 10px 15px 10px;
+            font-weight: bold;
+        }
+        .cart .show:hover {
+            background-color: #a8231e;
+        }
+        .full-text {
+            display: none;
+            padding: 10px;
+        }
+        .cart.expanded {
+            transform: scale(1.15);
+            z-index: 10;
+            box-shadow: 0 10px 25px black;
+            position: relative;
+            overflow: scroll;
+        }
+        .cart.expanded .full-text {
+            display: block;
+        }
+        .cart.expanded .show {
+            background-color: #a8231e;
+        }
+    </style>
 </head>
-<body>
+<body onload="showNews()">
     <header>
         <div class="block" onclick="window.location.href='index.html'">
             О компании
@@ -28,9 +131,14 @@
         </div>
     </header>
     <main>
+        <h1 style="text-align: center;">Новости</h1>
+        <hr>
 
+        <div id="news">
+        </div>
     </main>
     <footer>
+        <p>&copy; 2025 Гемабанк<sup>&reg;</sup>. Все права защищены.</p>
     </footer>
 </body>
 </html>
