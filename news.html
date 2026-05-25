@@ -9,6 +9,7 @@
     <link rel="icon" href="images/favicon-16x16.png">
     <link rel="icon" href="images/favicon-32x32.png">
     <script src="scripts/news.js"></script>
+    <script src="scripts/button.js"></script>
     <script>
         function showNews(){
             let container = document.getElementById('news');
@@ -18,7 +19,7 @@
                 output += `<div class="cart" id="cart-${i}">
                     <img src="${news[i].img}">
                     <h2>${news[i].name}</h2>
-                    <button class="show" onclick="showMore(${i})">Показать</button>
+                    <button class="btn" onclick="showMore(${i})">Показать</button>
                     <div id="full-${i}" class="full-text">${news[i].info}</div>
                 </div>`;
             }
@@ -26,7 +27,7 @@
         }
         function showMore(index) {
             let currentCart = document.getElementById(`cart-${index}`);
-            let currentBtn = currentCart.querySelector('.show');
+            let currentBtn = currentCart.querySelector('.btn');
             let isExpanded = currentCart.classList.contains('expanded');
 
             if (isExpanded) {
@@ -38,7 +39,7 @@
             let allExpanded = document.querySelectorAll('.cart.expanded');
             for (let i = 0; i < allExpanded.length; i++) {
                 allExpanded[i].classList.remove('expanded');
-                let btn = allExpanded[i].querySelector('.show');
+                let btn = allExpanded[i].querySelector('.btn');
                 if (btn) btn.textContent = 'Показать';
             }
 
@@ -80,19 +81,6 @@
             margin: 12px 10px 0 10px;
             color: #D6302A;
         }
-        .cart .show {
-            background-color: #D6302A;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 30px;
-            cursor: pointer;
-            margin: auto 10px 15px 10px;
-            font-weight: bold;
-        }
-        .cart .show:hover {
-            background-color: #a8231e;
-        }
         .full-text {
             display: none;
             padding: 10px;
@@ -107,7 +95,7 @@
         .cart.expanded .full-text {
             display: block;
         }
-        .cart.expanded .show {
+        .cart.expanded .btn {
             background-color: #a8231e;
         }
     </style>
@@ -140,5 +128,6 @@
     <footer>
         <p>&copy; 2025 Гемабанк<sup>&reg;</sup>. Все права защищены.</p>
     </footer>
+    <button class="up-button" onclick="btnUp()" title="Наверх">&uarr;</button>
 </body>
 </html>
