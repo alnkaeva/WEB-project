@@ -3,34 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Гемабанк</title>
+    <title>Гемабанк - Курс валют</title>
     <link rel="stylesheet" href="main.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon-16x16.png">
     <link rel="icon" href="images/favicon-32x32.png">
+    <script src="scripts/exchange.js"></script>
+    <script src="scripts/button.js"></script>
+    <style>
+        #cross {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .course {
+            display: block;
+            text-align: center;
+            width: 400px;
+            height: auto;
+            background-color: white;
+            border: 3px solid #1e1d1d;
+            border-radius: 12px;
+        }
+        .course h2 {
+            text-align: center;
+        }
+        .course input {
+            margin: 10px auto;
+            padding: 8px;
+            font-size: 16px;
+            border: 2px solid #D6302A;
+            border-radius: 4px;
+            background-color: white;
+        }
+        #diag {
+            overflow-x: scroll;
+            display: flex;
+            justify-content: center;
+        }
+        .columns-wrap {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 250px;
+            padding: 10px 0;
+        }
+        .column-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 32px;
+        }
+        .column {
+            width: 24px;
+            background-color: #D6302A;
+            border-radius: 4px 4px 0 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .column:hover {
+            background-color: #B52B26;
+        }
+        .column.selected {
+            background-color: #8B1E1A;
+            box-shadow: 0 0 0 2px black;
+        }
+        .column-label {
+            font-size: 9px;
+            text-align: center;
+            width: 32px;
+            margin-top: 4px;
+            color: black;
+        }
+        .info-block {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #D6302A;
+        }
+    </style>
 </head>
-<body>
+<body onload="showMainInfo(); buildDates(); loadNext();" id="top">
     <header>
-        <div class="block" onclick="window.location.href='index.html'">
-            О компании
-        </div>
-        <div class="block" onclick="window.location.href='news.html'">
-            Новости
-        </div>
-        <div class="block" onclick="window.location.href='exchange.html'">
-            Курс валют
-        </div>
-        <div class="block" onclick="window.location.href='contact.html'">
-            Контактные данные
-        </div>
-        <div class="block" onclick="window.location.href='video.html'">
-            Видео
-        </div>
+        <a class="block" href="index.html">О компании</a>
+        <a class="block" href="news.html">Новости</a>
+        <a class="block" href="exchange.html">Курс валют</a>
+        <a class="block" href="contact.html">Контактные данные</a>
+        <a class="block" href="video.html">Видео</a>
     </header>
+
     <main>
-        <p>Привет!</p>
+        <h1>Курс Датской кроны</h1>
+        <hr>
+        
+        <div id="cart">
+
+        </div>
+        <div id="cross">
+            <div id="rub-dkk" class="course">
+                <h2>Перевод RUB в DKK</h2>
+                <input id="rub-amount" type="number" placeholder="Введите рубли" value="100">
+                <button class="btn" onclick="rubToDkk()">Рассчитать</button>
+                <div id="rub-to-dkk-result" class="result">Результат: 0.00 DKK</div>
+            </div>
+
+            <div id="dkk-rub" class="course">
+                <h2>Перевод DKK в RUB</h2>
+                <input id="dkk-amount" type="number" placeholder="Введите кроны" value="100">
+                <button class="btn" onclick="dkkToRub()">Рассчитать</button>
+                <div id="dkk-to-rub-result" class="result">Результат: 0.00 ₽</div>
+            </div>
+        </div>
+
+        <div id="diag">Загрузка...</div>
+        <div id="infoBlock"></div>
     </main>
     <footer>
+        <p>&copy; 2025 Гемабанк<sup>&reg;</sup>. Все права защищены.</p>
     </footer>
+    <a href="#top" class="up-button" title="Наверх">&uarr;</a>
 </body>
 </html>
