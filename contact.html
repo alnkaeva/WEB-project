@@ -10,23 +10,13 @@
     <link rel="icon" href="images/favicon-32x32.png">
     <script src="scripts/button.js"></script>
 </head>
-<body>
+<body id="top">
     <header>
-        <div class="block" onclick="window.location.href='index.html'">
-            О компании
-        </div>
-        <div class="block" onclick="window.location.href='news.html'">
-            Новости
-        </div>
-        <div class="block" onclick="window.location.href='exchange.html'">
-            Курс валют
-        </div>
-        <div class="block" onclick="window.location.href='contact.html'">
-            Контактные данные
-        </div>
-        <div class="block" onclick="window.location.href='video.html'">
-            Видео
-        </div>
+        <a class="block" href="index.html">О компании</a>
+        <a class="block" href="news.html">Новости</a>
+        <a class="block" href="exchange.html">Курс валют</a>
+        <a class="block" href="contact.html">Контактные данные</a>
+        <a class="block" href="video.html">Видео</a>
     </header>
 
     <main>
@@ -57,6 +47,5 @@
     <footer>
         <p>&copy; 2025 Гемабанк<sup>&reg;</sup>. Все права защищены.</p>
     </footer>
-    <button class="up-button" onclick="btnUp()" title="Наверх">&uarr;</button>
-</body>
+    <a href="#top" class="up-button" title="Наверх">&uarr;</a>
 </html>
